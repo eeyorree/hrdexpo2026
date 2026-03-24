@@ -39,7 +39,7 @@ export default function IntroScreen({ onStart }: IntroScreenProps) {
       </div>
 
       {/* 로고 */}
-      <div className="flex justify-center pt-10">
+      <div className="flex justify-center pt-[140px]">
         <img
           src="/RGB_LIKELION_KR.png"
           alt="멋쟁이사자처럼"
