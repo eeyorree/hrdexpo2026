@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "Bash(command -v npm)",
+      "Bash(where npm:*)",
+      "Bash(node node_modules/next/dist/bin/next --version)",
+      "Bash(npm install:*)",
+      "Bash(powershell -Command \"Get-Item ''C:\\\\Users\\\\이하늘\\\\OneDrive\\\\Desktop\\\\claude\\\\submissions.xlsx'' | Select-Object Name, Length, LastWriteTime\")",
+      "Bash(node -e \":*)"
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+"use client";
+
+import { useState } from "react";
+
+const OPTIONS = [
+  "엄청나게 체감 중이에요",
+  "변화가 보이기 시작해요",
+  "아직은 잘 모르겠어요",
+];
+
+interface QuestionScreenProps {
+  onSubmit: (answer: string) => void;
+}
+
+function getTodayLabel() {
+  const d = new Date();
+  return `${d.getFullYear()}년 ${d.getMonth() + 1}월 ${d.getDate()}일`;
+}
+
+export default function QuestionScreen({ onSubmit }: QuestionScreenProps) {
+  const [selected, setSelected] = useState<string | null>(null);
+  const today = getTodayLabel();
+
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen px-5 text-center">
+      <div className="w-full max-w-[340px] flex flex-col items-center">
+        <h1
+          className="text-[20px] font-bold text-[#1C1C1C] leading-snug mb-8"
+          style={{ wordBreak: "keep-all" }}
+        >
+          {today} 오늘,<br />
+          <span className="text-[#FF6000]">AI가 내 일을</span> 바꾸고 있나요?
+        </h1>
+
+        <div className="flex flex-col gap-3 w-full mb-8">
+          {OPTIONS.map((opt) => {
+            const isSelected = selected === opt;
+            return (
+              <button
+                key={opt}
+                onClick={() => setSelected(opt)}
+                className="w-full py-4 px-5 rounded-2xl text-[15px] font-semibold transition-all duration-150 active:scale-95"
+                style={{
+                  backgroundColor: isSelected ? "#FFE066" : "#ffffff",
+                  color: "#1C1C1C",
+                  border: isSelected ? "2px solid #FFE066" : "2px solid #1C1C1C1A",
+                }}
+              >
+                {opt}
+              </button>
+            );
+          })}
+        </div>
+
+        <button
+          onClick={() => selected && onSubmit(selected)}
+          disabled={!selected}
+          className="w-full py-4 rounded-2xl font-bold text-[17px] transition-all duration-150 active:scale-95 active:brightness-90"
+          style={{
+            backgroundColor: selected ? "#FF6000" : "#1C1C1C1A",
+            color: selected ? "#ffffff" : "#1C1C1C60",
+          }}
+        >
+          응답 제출하기
+        </button>
+      </div>
+    </div>
+  );
+}
