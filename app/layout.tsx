@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "AI가 내 일을 바꾸고 있나요? | 멋쟁이사자처럼 기업교육",
+  title: "멋쟁이사자처럼 기업교육 X HRD Expo 2026",
   description: "HRD Expo 2026 현장 설문 — 멋쟁이사자처럼 기업교육",
 };
 
