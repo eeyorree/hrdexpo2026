@@ -8,8 +8,17 @@ const OPTIONS = [
   "아직은 잘 모르겠어요",
 ];
 
+interface FormData {
+  name: string;
+  company: string;
+  position: string;
+  email: string;
+  phone: string;
+}
+
 interface QuestionScreenProps {
-  onSubmit: (answer: string) => void;
+  formData: FormData | null;
+  onSubmit: () => void;
 }
 
 function getTodayLabel() {
@@ -17,9 +26,27 @@ function getTodayLabel() {
   return `${d.getFullYear()}년 ${d.getMonth() + 1}월 ${d.getDate()}일`;
 }
 
-export default function QuestionScreen({ onSubmit }: QuestionScreenProps) {
+export default function QuestionScreen({ formData, onSubmit }: QuestionScreenProps) {
   const [selected, setSelected] = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
   const today = getTodayLabel();
+
+  async function handleSubmit() {
+    if (!selected || submitting) return;
+    setSubmitting(true);
+    try {
+      await fetch("/api/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, answer: selected }),
+      });
+    } catch (e) {
+      console.error("제출 오류:", e);
+    } finally {
+      setSubmitting(false);
+      onSubmit();
+    }
+  }
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen px-5 text-center">
@@ -53,15 +80,15 @@ export default function QuestionScreen({ onSubmit }: QuestionScreenProps) {
         </div>
 
         <button
-          onClick={() => selected && onSubmit(selected)}
-          disabled={!selected}
+          onClick={handleSubmit}
+          disabled={!selected || submitting}
           className="w-full py-4 rounded-2xl font-bold text-[17px] transition-all duration-150 active:scale-95 active:brightness-90"
           style={{
             backgroundColor: selected ? "#FF6000" : "#1C1C1C1A",
             color: selected ? "#ffffff" : "#1C1C1C60",
           }}
         >
-          응답 제출하기
+          {submitting ? "제출 중..." : "응답 제출하기"}
         </button>
       </div>
     </div>

@@ -4,7 +4,7 @@ import { google } from "googleapis";
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { name, company, position, email, phone } = body;
+    const { name, company, position, email, phone, answer } = body;
 
     const now = new Date();
     const timestamp = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, "0")}-${String(now.getDate()).padStart(2, "0")} ${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}:${String(now.getSeconds()).padStart(2, "0")}`;
@@ -21,10 +21,10 @@ export async function POST(req: NextRequest) {
 
     await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.GOOGLE_SHEET_ID,
-      range: "시트1!A:F",
+      range: "시트1!A:G",
       valueInputOption: "RAW",
       requestBody: {
-        values: [[timestamp, name, company, position, email, phone]],
+        values: [[timestamp, name, company, position, email, phone, answer]],
       },
     });
 

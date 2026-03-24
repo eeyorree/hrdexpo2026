@@ -25,7 +25,6 @@ export default function FormScreen({ onNext }: FormScreenProps) {
     marketing: null,
   });
   const [showModal, setShowModal] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
 
   function handleChange(field: keyof Omit<FormData, "marketing">, value: string) {
     setForm((prev) => ({ ...prev, [field]: value }));
@@ -51,27 +50,9 @@ export default function FormScreen({ onNext }: FormScreenProps) {
     phoneValid &&
     form.marketing === "yes";
 
-  async function handleNext() {
-    if (!isValid || submitting) return;
-    setSubmitting(true);
-    try {
-      await fetch("/api/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: form.name,
-          company: form.company,
-          position: form.position,
-          email: form.email,
-          phone: form.phone,
-        }),
-      });
-    } catch (e) {
-      console.error("제출 오류:", e);
-    } finally {
-      setSubmitting(false);
-      onNext(form);
-    }
+  function handleNext() {
+    if (!isValid) return;
+    onNext(form);
   }
 
   const inputClass =
@@ -175,14 +156,14 @@ export default function FormScreen({ onNext }: FormScreenProps) {
 
       <button
         onClick={handleNext}
-        disabled={!isValid || submitting}
+        disabled={!isValid}
         className="w-full py-4 rounded-2xl font-bold text-[17px] transition-all duration-150 active:scale-95 active:brightness-90"
         style={{
           backgroundColor: isValid ? "#FF6000" : "#1C1C1C1A",
           color: isValid ? "#ffffff" : "#1C1C1C60",
         }}
       >
-        {submitting ? "저장 중..." : "다음"}
+        다음
       </button>
 
       {/* 모달 */}
