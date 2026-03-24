@@ -14,8 +14,8 @@ export default function IntroScreen({ onStart }: IntroScreenProps) {
 
   return (
     <div className="flex flex-col min-h-screen px-6 text-center">
-      {/* 상단 텍스트 영역 — 화면 중앙 */}
-      <div className="flex flex-col items-center justify-center flex-1 w-full max-w-[340px] mx-auto">
+      {/* 상단 텍스트 영역 */}
+      <div className="flex flex-col items-center w-full max-w-[340px] mx-auto pt-24 pb-0">
         <h1
           className="text-[22px] font-bold leading-snug text-[#1C1C1C] mb-3"
           style={{ wordBreak: "keep-all" }}
@@ -38,14 +38,17 @@ export default function IntroScreen({ onStart }: IntroScreenProps) {
         </button>
       </div>
 
-      {/* 하단 로고 */}
-      <div className="flex justify-center pb-10">
+      {/* 로고 */}
+      <div className="flex justify-center pt-10">
         <img
           src="/RGB_LIKELION_KR.png"
           alt="멋쟁이사자처럼"
           className="w-44 object-contain"
         />
       </div>
+
+      {/* 하단 여백 — flex-1으로 남은 공간 */}
+      <div className="flex-1" />
     </div>
   );
 }
