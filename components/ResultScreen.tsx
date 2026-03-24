@@ -26,7 +26,7 @@ export default function ResultScreen() {
         <img
           src="/RGB_LIKELION_KR.png"
           alt="멋쟁이사자처럼"
-          className="w-28 object-contain"
+          className="w-44 object-contain mt-4"
         />
 
         {/* 하단 각주 — 작게, 회색 */}
