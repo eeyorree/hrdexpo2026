@@ -17,7 +17,7 @@ export default function IntroScreen({ onStart }: IntroScreenProps) {
       {/* 상단 텍스트 영역 */}
       <div className="flex flex-col items-center w-full max-w-[340px] mx-auto pt-24 pb-0">
         <h1
-          className="text-[22px] font-bold leading-snug text-[#1C1C1C] mb-3"
+          className="text-[22px] font-bold leading-snug text-[#f9f9f9] mb-3"
           style={{ wordBreak: "keep-all" }}
         >
           {today} 오늘,
@@ -25,7 +25,7 @@ export default function IntroScreen({ onStart }: IntroScreenProps) {
           <span className="text-[#FF6000]">AI가 내 일을</span> 바꾸고 있나요?
         </h1>
 
-        <p className="text-[14px] font-medium text-[#1C1C1C]/60 mb-10">
+        <p className="text-[14px] font-medium text-[#f9f9f9]/60 mb-10">
           멋쟁이사자처럼 기업교육 X HRD Expo 2026
         </p>
 

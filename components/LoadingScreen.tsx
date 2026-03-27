@@ -91,7 +91,7 @@ export default function LoadingScreen() {
 
         <p
           key={messageIndex}
-          className="text-[13px] text-gray-500 animate-fade-in"
+          className="text-[13px] text-[#f9f9f9]/50 animate-fade-in"
         >
           {LOADING_MESSAGES[messageIndex]}
         </p>
@@ -99,7 +99,7 @@ export default function LoadingScreen() {
 
       {/* 하단 타이핑 바 */}
       <div className="absolute bottom-20 left-6 right-6">
-        <div className="h-0.5 bg-[#1a1a1a] rounded-full overflow-hidden">
+        <div className="h-0.5 bg-[#f9f9f9]/10 rounded-full overflow-hidden">
           <div
             className="h-full rounded-full"
             style={{

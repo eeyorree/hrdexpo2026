@@ -22,7 +22,7 @@ export default function Home() {
   const [formData, setFormData] = useState<FormData | null>(null);
 
   return (
-    <main className="min-h-screen bg-[#F2EDE6]">
+    <main className="min-h-screen bg-[#1C1C1C]">
       <div className="w-full max-w-[390px] mx-auto min-h-screen">
         {screen === "intro" && (
           <IntroScreen onStart={() => setScreen("form")} />

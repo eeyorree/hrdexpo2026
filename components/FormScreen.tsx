@@ -56,11 +56,11 @@ export default function FormScreen({ onNext }: FormScreenProps) {
   }
 
   const inputClass =
-    "w-full px-3 py-2.5 rounded-xl border border-[#1C1C1C]/20 bg-white text-[#1C1C1C] text-[15px] outline-none focus:border-[#FF6000] transition-colors placeholder:text-[#1C1C1C]/30";
+    "w-full px-3 py-2.5 rounded-xl border border-[#f9f9f9]/20 bg-[#2a2a2a] text-[#f9f9f9] text-[15px] outline-none focus:border-[#FF6000] transition-colors placeholder:text-[#f9f9f9]/30";
 
   return (
     <div className="flex flex-col min-h-screen px-5 py-5">
-      <p className="text-[15px] font-semibold text-[#1C1C1C] mb-4 leading-snug" style={{ wordBreak: "keep-all" }}>
+      <p className="text-[15px] font-semibold text-[#f9f9f9] mb-4 leading-snug" style={{ wordBreak: "keep-all" }}>
         설문에 앞서,<br />응답하시는 분의 정보를 알려주세요.
       </p>
 
@@ -113,21 +113,21 @@ export default function FormScreen({ onNext }: FormScreenProps) {
       </div>
 
       {/* 마케팅 동의 박스 */}
-      <div className="rounded-2xl border border-[#1C1C1C]/15 bg-white p-3.5 mb-4 text-[12px] text-[#1C1C1C]/70 leading-relaxed">
-        <p className="font-bold text-[#1C1C1C] text-[13px] mb-1.5">[선택] 마케팅 목적의 개인정보 수집 및 활용 동의</p>
+      <div className="rounded-2xl border border-[#f9f9f9]/15 bg-[#242424] p-3.5 mb-4 text-[12px] text-[#f9f9f9]/70 leading-relaxed">
+        <p className="font-bold text-[#f9f9f9] text-[13px] mb-1.5">[선택] 마케팅 목적의 개인정보 수집 및 활용 동의</p>
         <p className="mb-1">
-          <span className="font-semibold text-[#1C1C1C]/80">목적:</span> 멋쟁이사자처럼 기업교육의 제품 소식, 이벤트/프로모션 정보 안내, 맞춤형 서비스 제공
+          <span className="font-semibold text-[#f9f9f9]/80">목적:</span> 멋쟁이사자처럼 기업교육의 제품 소식, 이벤트/프로모션 정보 안내, 맞춤형 서비스 제공
         </p>
         <p className="mb-1">
-          <span className="font-semibold text-[#1C1C1C]/80">항목:</span> 휴대전화번호, 이메일, 이름, 회사 정보
+          <span className="font-semibold text-[#f9f9f9]/80">항목:</span> 휴대전화번호, 이메일, 이름, 회사 정보
         </p>
         <p className="mb-3">
-          <span className="font-semibold text-[#1C1C1C]/80">보유기간:</span> 마케팅 동의 철회 시까지
+          <span className="font-semibold text-[#f9f9f9]/80">보유기간:</span> 마케팅 동의 철회 시까지
         </p>
-        <p className="text-[11px] text-[#1C1C1C]/50 mb-2">
+        <p className="text-[11px] text-[#f9f9f9]/50 mb-2">
           귀하는 동의를 거부할 수 있으나, 거부 시 설문 진행이 제한됩니다.
         </p>
-        <p className="font-semibold text-[#1C1C1C] text-[13px] mb-2">동의하시겠습니까?</p>
+        <p className="font-semibold text-[#f9f9f9] text-[13px] mb-2">동의하시겠습니까?</p>
         <div className="flex gap-6">
           <label className="flex items-center gap-2 cursor-pointer">
             <input
@@ -138,7 +138,7 @@ export default function FormScreen({ onNext }: FormScreenProps) {
               onChange={() => handleMarketing("yes")}
               className="accent-[#FF6000] w-4 h-4"
             />
-            <span className="text-[14px] font-medium text-[#1C1C1C]">예</span>
+            <span className="text-[14px] font-medium text-[#f9f9f9]">예</span>
           </label>
           <label className="flex items-center gap-2 cursor-pointer">
             <input
@@ -149,7 +149,7 @@ export default function FormScreen({ onNext }: FormScreenProps) {
               onChange={() => handleMarketing("no")}
               className="accent-[#FF6000] w-4 h-4"
             />
-            <span className="text-[14px] font-medium text-[#1C1C1C]">아니오</span>
+            <span className="text-[14px] font-medium text-[#f9f9f9]">아니오</span>
           </label>
         </div>
       </div>
@@ -159,8 +159,8 @@ export default function FormScreen({ onNext }: FormScreenProps) {
         disabled={!isValid}
         className="w-full py-4 rounded-2xl font-bold text-[17px] transition-all duration-150 active:scale-95 active:brightness-90"
         style={{
-          backgroundColor: isValid ? "#FF6000" : "#1C1C1C1A",
-          color: isValid ? "#ffffff" : "#1C1C1C60",
+          backgroundColor: isValid ? "#FF6000" : "rgba(249,249,249,0.12)",
+          color: isValid ? "#ffffff" : "rgba(249,249,249,0.35)",
         }}
       >
         다음
@@ -174,10 +174,10 @@ export default function FormScreen({ onNext }: FormScreenProps) {
           onClick={() => setShowModal(false)}
         >
           <div
-            className="bg-white rounded-2xl px-6 py-6 w-full max-w-[320px] text-center"
+            className="bg-[#2a2a2a] rounded-2xl px-6 py-6 w-full max-w-[320px] text-center"
             onClick={(e) => e.stopPropagation()}
           >
-            <p className="text-[15px] font-semibold text-[#1C1C1C] leading-snug mb-5" style={{ wordBreak: "keep-all" }}>
+            <p className="text-[15px] font-semibold text-[#f9f9f9] leading-snug mb-5" style={{ wordBreak: "keep-all" }}>
               마케팅 수신에 동의하지 않으시는 경우,<br />설문을 진행할 수 없습니다.
             </p>
             <button

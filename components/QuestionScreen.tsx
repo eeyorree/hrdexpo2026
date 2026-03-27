@@ -52,7 +52,7 @@ export default function QuestionScreen({ formData, onSubmit }: QuestionScreenPro
     <div className="flex flex-col items-center justify-center min-h-screen px-5 text-center">
       <div className="w-full max-w-[340px] flex flex-col items-center">
         <h1
-          className="text-[20px] font-bold text-[#1C1C1C] leading-snug mb-8"
+          className="text-[20px] font-bold text-[#f9f9f9] leading-snug mb-8"
           style={{ wordBreak: "keep-all" }}
         >
           {today} 오늘,<br />
@@ -68,9 +68,9 @@ export default function QuestionScreen({ formData, onSubmit }: QuestionScreenPro
                 onClick={() => setSelected(opt)}
                 className="w-full py-4 px-5 rounded-2xl text-[15px] font-semibold transition-all duration-150 active:scale-95"
                 style={{
-                  backgroundColor: isSelected ? "#FFE066" : "#ffffff",
-                  color: "#1C1C1C",
-                  border: isSelected ? "2px solid #FFE066" : "2px solid #1C1C1C1A",
+                  backgroundColor: isSelected ? "#FFE066" : "#242424",
+                  color: isSelected ? "#1C1C1C" : "#f9f9f9",
+                  border: isSelected ? "2px solid #FFE066" : "2px solid rgba(249,249,249,0.15)",
                 }}
               >
                 {opt}
@@ -84,8 +84,8 @@ export default function QuestionScreen({ formData, onSubmit }: QuestionScreenPro
           disabled={!selected || submitting}
           className="w-full py-4 rounded-2xl font-bold text-[17px] transition-all duration-150 active:scale-95 active:brightness-90"
           style={{
-            backgroundColor: selected ? "#FF6000" : "#1C1C1C1A",
-            color: selected ? "#ffffff" : "#1C1C1C60",
+            backgroundColor: selected ? "#FF6000" : "rgba(249,249,249,0.12)",
+            color: selected ? "#ffffff" : "rgba(249,249,249,0.35)",
           }}
         >
           {submitting ? "제출 중..." : "응답 제출하기"}
