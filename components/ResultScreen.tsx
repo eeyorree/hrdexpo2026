@@ -12,9 +12,8 @@ export default function ResultScreen() {
 
         {/* 바디 카피 */}
         <p className="text-[15px] text-[#f9f9f9] leading-relaxed" style={{ wordBreak: "keep-all" }}>
-          이 화면을 가까이에 있는<br />
-          <span className="font-semibold text-[#f9f9f9]">멋사 스태프</span>에게 보여주시면<br />
-          <span className="font-semibold text-[#FF6000]">추첨권이 포함된<br />선물꾸러미</span>를 드립니다.
+          <span className="font-bold">이 화면을 멋쟁이사자처럼<br />부스 스태프에게 보여주세요!</span><br />
+          다양한 상품이 준비된<br />추첨 이벤트를 진행하실 수 있습니다.
         </p>
 
         {/* 하단 카피 — bold */}
